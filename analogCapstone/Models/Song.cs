@@ -8,10 +8,18 @@ namespace analogCapstone.Models
 {
     public class Song
     {
+        [Key]
+        public int SongId { get; set; }
+
         [Required]
         [Display(Name = "Song Title")]
         public string SongTitle { get; set; }
+        
+        [Required]
+        [Display(Name="Band or Artist Name")]
+        public string BandArtistName { get; set; }
 
+        public string ProducerId { get; set; }
         public ApplicationUser Producer { get; set; }
 
         public virtual ICollection<Channel> Channels { get; set; }

@@ -14,6 +14,6 @@ namespace analogCapstone.Models
 
         public Song Song { get; set; }
 
-        public ChannelToGear ChannelToGear { get; set; }
+        public virtual ICollection<ChannelToGear> ChannelToGears { get; set; }
     }
 }

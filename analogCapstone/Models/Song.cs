@@ -14,6 +14,6 @@ namespace analogCapstone.Models
 
         public ApplicationUser Producer { get; set; }
 
-        public Channel Channel { get; set; }
+        public virtual ICollection<Channel> Channels { get; set; }
     }
 }

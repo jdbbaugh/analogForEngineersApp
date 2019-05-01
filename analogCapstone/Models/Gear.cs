@@ -21,5 +21,7 @@ namespace analogCapstone.Models
         public int OrdinalsAvailable { get; set; }
 
         public virtual ICollection<Knob> Knobs { get; set; }
+
+        public virtual ICollection<ChannelToGear> ChannelToGears { get; set; }
     }
 }

@@ -61,10 +61,50 @@ namespace analogCapstone.Data
                 modelBuilder.Entity<Song>().HasData(
                     new Song()
                     {
-
+                        SongId = 1,
+                        ProducerId = user.Id,
+                        BandArtistName = "Converge",
+                        SongTitle = "Jane Doe"
+                    },
+                    new Song()
+                    {
+                        SongId = 2,
+                        ProducerId = user2.Id,
+                        BandArtistName = "Deft Prose",
+                        SongTitle = "Guion"
                     }
                     
-                    );
+               );
+                modelBuilder.Entity<Channel>().HasData(
+                    new Channel()
+                    {
+                        ChannelId = 1,
+                        ChannelName = "Ch1-Lead Vocal",
+                        SongId = "1",
+                    },
+                    new Channel()
+                    {
+                        ChannelId = 2,
+                        ChannelName = "Ch2-Elec-Gtr",
+                        SongId = "1",
+                    },
+                    new Channel()
+                    {
+                        ChannelId = 3,
+                        ChannelName = "Ch1-Acoustic Guitar",
+                        SongId = "2",
+                    },
+                    new Channel()
+                    {
+                        ChannelId = 4,
+                        ChannelName = "Ch2-Cow Bell",
+                        SongId = "2",
+                    }
+               );
+
+                modelBuilder.Entity<Gear>()
+
+
 
 
             }

@@ -410,7 +410,120 @@ namespace analogCapstone.Data
                         KnobId = "8",
                         KnobSetting = "37"
                     },
-                    // song1/channel2/1073
+                    // song1/channel-2/1073
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 9,
+                        GearId = "3",
+                        ChannelId = "2",
+                        KnobId = "9",
+                        KnobSetting = "80"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 10,
+                        GearId = "3",
+                        ChannelId = "2",
+                        KnobId = "19",
+                        KnobSetting = "220@+2"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 11,
+                        GearId = "3",
+                        ChannelId = "2",
+                        KnobId = "11",
+                        KnobSetting = "1k8@-1"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 12,
+                        GearId = "3",
+                        ChannelId = "2",
+                        KnobId = "12",
+                        KnobSetting = "+1"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 13,
+                        GearId = "3",
+                        ChannelId = "2",
+                        KnobId = "13",
+                        KnobSetting = "Mic+25"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 14,
+                        GearId = "3",
+                        ChannelId = "2",
+                        KnobId = "14",
+                        KnobSetting = "1200"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 15,
+                        GearId = "3",
+                        ChannelId = "2",
+                        KnobId = "15",
+                        KnobSetting = "Full"
+                    },
+                    // song2/channel-1/1023
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 16,
+                        GearId = "4",
+                        ChannelId = "3",
+                        KnobId = "16",
+                        KnobSetting = "220"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 17,
+                        GearId = "4",
+                        ChannelId = "3",
+                        KnobId = "17",
+                        KnobSetting = "400@+1"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 18,
+                        GearId = "4",
+                        ChannelId = "3",
+                        KnobId = "18",
+                        KnobSetting = "2k2@-3"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 19,
+                        GearId = "4",
+                        ChannelId = "3",
+                        KnobId = "19",
+                        KnobSetting = "10k@+2.5"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 20,
+                        GearId = "4",
+                        ChannelId = "3",
+                        KnobId = "20",
+                        KnobSetting = "Mic+30"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 21,
+                        GearId = "4",
+                        ChannelId = "3",
+                        KnobId = "21",
+                        KnobSetting = "1200"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 22,
+                        GearId = "4",
+                        ChannelId = "3",
+                        KnobId = "22",
+                        KnobSetting = ".75"
+                    }
 
                 );
 

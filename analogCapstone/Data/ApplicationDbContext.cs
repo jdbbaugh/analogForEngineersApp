@@ -523,8 +523,25 @@ namespace analogCapstone.Data
                         ChannelId = "3",
                         KnobId = "22",
                         KnobSetting = ".75"
-                    }
-
+                    },
+                    // song2/channel-1/LA-2A
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 23,
+                        GearId = "2",
+                        ChannelId = "3",
+                        KnobId = "7",
+                        KnobSetting = "27"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 24,
+                        GearId = "2",
+                        ChannelId = "3",
+                        KnobId = "8",
+                        KnobSetting = "47"
+                    },
+                    // song2/channel-2/LA-2A
                 );
 
 

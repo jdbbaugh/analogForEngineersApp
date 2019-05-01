@@ -102,7 +102,48 @@ namespace analogCapstone.Data
                     }
                );
 
-                modelBuilder.Entity<Gear>()
+                modelBuilder.Entity<Gear>().HasData(
+                    new Gear()
+                    {
+                        GearId = 1,
+                        Make = "Chandler Limited",
+                        Model = "TG2 Abbey Road Pre",
+                        Type = "Pre-amplifier",
+                        OrdinalsAvailable = 6,
+                    },
+                    new Gear()
+                    {
+                        GearId = 2,
+                        Make = "Universal Audio",
+                        Model = "LA-2A",
+                        Type = "Limiter/Compressor",
+                        OrdinalsAvailable = 2,
+                    },
+                    new Gear()
+                    {
+                        GearId = 3,
+                        Make = "BAE",
+                        Model = "1073",
+                        Type = "Equalizer",
+                        OrdinalsAvailable = 7,
+                    },
+                new Gear()
+                    {
+                        GearId = 4,
+                        Make = "BAE",
+                        Model = "1023",
+                        Type = "Equalizer",
+                        OrdinalsAvailable = 7,
+                    },
+                    new Gear()
+                    {
+                        GearId = 5,
+                        Make = "Purple Audio",
+                        Model = "MC-77",
+                        Type = "Limiter/Compressor",
+                        OrdinalsAvailable = 5,
+                    }
+                );
 
 
 

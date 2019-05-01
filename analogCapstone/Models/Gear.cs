@@ -8,6 +8,9 @@ namespace analogCapstone.Models
 {
     public class Gear
     {
+        [Key]
+        public int GearId { get; set; }
+
         [Required]
         public string Make { get; set; }
 

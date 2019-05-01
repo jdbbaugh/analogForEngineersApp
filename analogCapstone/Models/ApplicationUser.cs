@@ -25,6 +25,6 @@ namespace analogCapstone.Models
 
         public virtual ICollection<Song> Songs { get; set; }
 
-        
+        public string producerImgUrl { get; set; }
     }
 }

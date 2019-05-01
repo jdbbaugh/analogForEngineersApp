@@ -17,5 +17,7 @@ namespace analogCapstone.Models
         [Display(Name="Knob Setting")]
         [Required]
         public string KnobSetting { get; set; }
+
+        
     }
 }

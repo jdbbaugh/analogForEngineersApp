@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace analogCapstone.Models
 {
-    public class Song
+    public class ChannelToGear
     {
-        [Required]
-        [Display(Name = "Song Title")]
-        public string SongTitle { get; set; }
-
-        public ApplicationUser Producer { get; set; }
+        public Gear Gear { get; set; }
 
         public Channel Channel { get; set; }
+
+        public Knob Knob { get; set; }
+
+        [Display(Name="Knob Setting")]
+        [Required]
+        public string KnobSetting { get; set; }
     }
 }

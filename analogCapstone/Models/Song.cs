@@ -19,8 +19,8 @@ namespace analogCapstone.Models
         [Display(Name="Band or Artist Name")]
         public string BandArtistName { get; set; }
 
-        public string ProducerId { get; set; }
-        public ApplicationUser Producer { get; set; }
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         public virtual ICollection<Channel> Channels { get; set; }
     }

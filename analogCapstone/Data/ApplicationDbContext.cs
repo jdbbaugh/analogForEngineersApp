@@ -541,7 +541,96 @@ namespace analogCapstone.Data
                         KnobId = "8",
                         KnobSetting = "47"
                     },
-                    // song2/channel-2/LA-2A
+                    // song2/channel-2-tg2
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 25,
+                        GearId = "1",
+                        ChannelId = "4",
+                        KnobId = "1",
+                        KnobSetting = "25"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 26,
+                        GearId = "1",
+                        ChannelId = "4",
+                        KnobId = "2",
+                        KnobSetting = "4"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 27,
+                        GearId = "1",
+                        ChannelId = "4",
+                        KnobId = "3",
+                        KnobSetting = "Off"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 28,
+                        GearId = "1",
+                        ChannelId = "4",
+                        KnobId = "4",
+                        KnobSetting = "On"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 29,
+                        GearId = "1",
+                        ChannelId = "4",
+                        KnobId = "5",
+                        KnobSetting = "Off"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 30,
+                        GearId = "1",
+                        ChannelId = "4",
+                        KnobId = "6",
+                        KnobSetting = "Off"
+                    },
+                    // song2/channel-2-PURPLE-MC77
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 31,
+                        GearId = "5",
+                        ChannelId = "4",
+                        KnobId = "23",
+                        KnobSetting = "33"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 31,
+                        GearId = "5",
+                        ChannelId = "4",
+                        KnobId = "24",
+                        KnobSetting = "21"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 31,
+                        GearId = "5",
+                        ChannelId = "4",
+                        KnobId = "25",
+                        KnobSetting = "3.75"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 31,
+                        GearId = "5",
+                        ChannelId = "4",
+                        KnobId = "26",
+                        KnobSetting = "6"
+                    },
+                    new ChannelToGear()
+                    {
+                        ChannelToGearId = 31,
+                        GearId = "5",
+                        ChannelId = "4",
+                        KnobId = "27",
+                        KnobSetting = "8"
+                    }
                 );
 
 

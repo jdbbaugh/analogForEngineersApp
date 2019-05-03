@@ -22,7 +22,7 @@ namespace analogCapstone.Controllers
         // GET: Gears
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Gear.ToListAsync());
+            return View(await _context.Gear.OrderBy(o => o.Type).ToListAsync());
         }
 
         // GET: Gears/Details/5

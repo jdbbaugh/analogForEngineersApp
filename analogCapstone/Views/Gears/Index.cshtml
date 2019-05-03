@@ -25,9 +25,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Type)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrdinalsAvailable)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -42,9 +39,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrdinalsAvailable)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.GearId">Edit</a> |

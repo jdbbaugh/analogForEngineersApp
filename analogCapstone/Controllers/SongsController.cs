@@ -27,7 +27,17 @@ namespace analogCapstone.Controllers
         // GET: Songs
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Song.Include(s => s.ApplicationUser);
+            var user = await GetCurrentUserAsync();
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var userid = user.Id;
+            var applicationDbContext = _context.Song
+                .Include(s => s.ApplicationUser)
+                .Include(c => c.Channels)
+                .Where(o => o.ApplicationUser.Id == userid);
             return View(await applicationDbContext.ToListAsync());
         }
 

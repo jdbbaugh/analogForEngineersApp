@@ -16,9 +16,9 @@ namespace analogCapstone.Models
         public string SongTitle { get; set; }
         
         [Required]
-        [Display(Name="Band or Artist Name")]
+        [Display(Name="Band/Artist")]
         public string BandArtistName { get; set; }
-
+    
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 

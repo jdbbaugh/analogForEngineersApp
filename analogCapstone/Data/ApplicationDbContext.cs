@@ -82,25 +82,25 @@ namespace analogCapstone.Data
                     {
                         ChannelId = 1,
                         ChannelName = "Ch1-Lead Vocal",
-                        SongId = "1",
+                        SongId = 1,
                     },
                     new Channel()
                     {
                         ChannelId = 2,
                         ChannelName = "Ch2-Elec-Gtr",
-                        SongId = "1",
+                        SongId = 1,
                     },
                     new Channel()
                     {
                         ChannelId = 3,
                         ChannelName = "Ch1-Acoustic Guitar",
-                        SongId = "2",
+                        SongId = 2,
                     },
                     new Channel()
                     {
                         ChannelId = 4,
                         ChannelName = "Ch2-Cow Bell",
-                        SongId = "2",
+                        SongId = 2,
                     }
                );
 
@@ -153,42 +153,42 @@ namespace analogCapstone.Data
                     {
                         KnobId = 1,
                         KnobName = "Input",
-                        GearId = "1",
+                        GearId = 1,
                         Ordinal = 1
                     },
                     new Knob()
                     {
                         KnobId = 2,
                         KnobName = "Output",
-                        GearId = "1",
+                        GearId = 1,
                         Ordinal = 2
                     },
                     new Knob()
                     {
                         KnobId = 3,
                         KnobName = "Phase",
-                        GearId = "1",
+                        GearId = 1,
                         Ordinal = 3
                     },
                     new Knob()
                     {
                         KnobId = 4,
                         KnobName = "DI",
-                        GearId = "1",
+                        GearId = 1,
                         Ordinal = 4
                     },
                     new Knob()
                     {
                         KnobId = 5,
                         KnobName = "48v",
-                        GearId = "1",
+                        GearId = 1,
                         Ordinal = 5
                     },
                     new Knob()
                     {
                         KnobId = 6,
                         KnobName = "300Ohm",
-                        GearId = "1",
+                        GearId = 1,
                         Ordinal = 6
                     },
                     //UA LA-2A
@@ -196,14 +196,14 @@ namespace analogCapstone.Data
                     {
                         KnobId = 7,
                         KnobName = "Gain",
-                        GearId = "2",
+                        GearId = 2,
                         Ordinal = 1
                     },
                     new Knob()
                     {
                         KnobId = 8,
                         KnobName = "Peak Reduction",
-                        GearId = "2",
+                        GearId = 2,
                         Ordinal = 2
                     },
                     //1073
@@ -211,49 +211,49 @@ namespace analogCapstone.Data
                     {
                         KnobId = 9,
                         KnobName = "HiPass",
-                        GearId = "3",
+                        GearId = 3,
                         Ordinal = 1
                     },
                     new Knob()
                     {
                         KnobId = 10,
                         KnobName = "LoEq",
-                        GearId = "3",
+                        GearId = 3,
                         Ordinal = 2
                     },
                     new Knob()
                     {
                         KnobId = 11,
                         KnobName = "MidEq",
-                        GearId = "3",
+                        GearId = 3,
                         Ordinal = 3
                     },
                     new Knob()
                     {
                         KnobId = 12,
                         KnobName = "LoPass",
-                        GearId = "3",
+                        GearId = 3,
                         Ordinal = 4
                     },
                     new Knob()
                     {
                         KnobId = 13,
                         KnobName = "Volume",
-                        GearId = "3",
+                        GearId = 3,
                         Ordinal = 5
                     },
                     new Knob()
                     {
                         KnobId = 14,
                         KnobName = "Ohm",
-                        GearId = "3",
+                        GearId = 3,
                         Ordinal = 6
                     },
                     new Knob()
                     {
                         KnobId = 15,
                         KnobName = "Output",
-                        GearId = "3",
+                        GearId = 3,
                         Ordinal = 7
                     },
                     //1023
@@ -261,49 +261,49 @@ namespace analogCapstone.Data
                     {
                         KnobId = 16,
                         KnobName = "HiPass",
-                        GearId = "4",
+                        GearId = 4,
                         Ordinal = 1
                     },
                     new Knob()
                     {
                         KnobId = 17,
                         KnobName = "LoEq",
-                        GearId = "4",
+                        GearId = 4,
                         Ordinal = 2
                     },
                     new Knob()
                     {
                         KnobId = 18,
                         KnobName = "MidEq",
-                        GearId = "4",
+                        GearId = 4,
                         Ordinal = 3
                     },
                     new Knob()
                     {
                         KnobId = 19,
                         KnobName = "LoPass",
-                        GearId = "4",
+                        GearId = 4,
                         Ordinal = 4
                     },
                     new Knob()
                     {
                         KnobId = 20,
                         KnobName = "Volume",
-                        GearId = "4",
+                        GearId = 4,
                         Ordinal = 5
                     },
                     new Knob()
                     {
                         KnobId = 21,
                         KnobName = "Ohm",
-                        GearId = "4",
+                        GearId = 4,
                         Ordinal = 6
                     },
                     new Knob()
                     {
                         KnobId = 22,
                         KnobName = "Output",
-                        GearId = "4",
+                        GearId = 4,
                         Ordinal = 7
                     },
                     //PURPLE
@@ -311,35 +311,35 @@ namespace analogCapstone.Data
                     {
                         KnobId = 23,
                         KnobName = "Input",
-                        GearId = "5",
+                        GearId = 5,
                         Ordinal = 1
                     },
                     new Knob()
                     {
                         KnobId = 24,
                         KnobName = "Output",
-                        GearId = "5",
+                        GearId = 5,
                         Ordinal = 2
                     },
                     new Knob()
                     {
                         KnobId = 25,
                         KnobName = "Attack",
-                        GearId = "5",
+                        GearId = 5,
                         Ordinal = 3
                     },
                     new Knob()
                     {
                         KnobId = 26,
                         KnobName = "Release",
-                        GearId = "5",
+                        GearId = 5,
                         Ordinal = 4
                     },
                     new Knob()
                     {
                         KnobId = 27,
                         KnobName = "Ratio",
-                        GearId = "5",
+                        GearId = 5,
                         Ordinal = 5
                     }
 
@@ -350,287 +350,287 @@ namespace analogCapstone.Data
                     new ChannelToGear()
                     {
                         ChannelToGearId = 1,
-                        GearId = "1",
-                        ChannelId = "1",
-                        KnobId = "1",
+                        GearId = 1,
+                        ChannelId = 1,
+                        KnobId = 1,
                         KnobSetting = "35"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 2,
-                        GearId = "1",
-                        ChannelId = "1",
-                        KnobId = "2",
+                        GearId = 1,
+                        ChannelId = 1,
+                        KnobId = 2,
                         KnobSetting = "6.5"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 3,
-                        GearId = "1",
-                        ChannelId = "1",
-                        KnobId = "3",
+                        GearId = 1,
+                        ChannelId = 1,
+                        KnobId = 3,
                         KnobSetting = "Off"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 4,
-                        GearId = "1",
-                        ChannelId = "1",
-                        KnobId = "4",
+                        GearId = 1,
+                        ChannelId = 1,
+                        KnobId = 4,
                         KnobSetting = "Off"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 5,
-                        GearId = "1",
-                        ChannelId = "1",
-                        KnobId = "5",
+                        GearId = 1,
+                        ChannelId = 1,
+                        KnobId = 5,
                         KnobSetting = "Off"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 6,
-                        GearId = "1",
-                        ChannelId = "1",
-                        KnobId = "6",
+                        GearId = 1,
+                        ChannelId = 1,
+                        KnobId = 6,
                         KnobSetting = "Off"
                     },
                     // song1/channel1/la-2a
                     new ChannelToGear()
                     {
                         ChannelToGearId = 7,
-                        GearId = "2",
-                        ChannelId = "1",
-                        KnobId = "7",
+                        GearId = 2,
+                        ChannelId = 1,
+                        KnobId = 7,
                         KnobSetting = "42"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 8,
-                        GearId = "2",
-                        ChannelId = "1",
-                        KnobId = "8",
+                        GearId = 2,
+                        ChannelId = 1,
+                        KnobId = 8,
                         KnobSetting = "37"
                     },
                     // song1/channel-2/1073
                     new ChannelToGear()
                     {
                         ChannelToGearId = 9,
-                        GearId = "3",
-                        ChannelId = "2",
-                        KnobId = "9",
+                        GearId = 3,
+                        ChannelId = 2,
+                        KnobId = 9,
                         KnobSetting = "80"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 10,
-                        GearId = "3",
-                        ChannelId = "2",
-                        KnobId = "19",
+                        GearId = 3,
+                        ChannelId = 2,
+                        KnobId = 19,
                         KnobSetting = "220@+2"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 11,
-                        GearId = "3",
-                        ChannelId = "2",
-                        KnobId = "11",
+                        GearId = 3,
+                        ChannelId = 2,
+                        KnobId = 11,
                         KnobSetting = "1k8@-1"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 12,
-                        GearId = "3",
-                        ChannelId = "2",
-                        KnobId = "12",
+                        GearId = 3,
+                        ChannelId = 2,
+                        KnobId = 12,
                         KnobSetting = "+1"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 13,
-                        GearId = "3",
-                        ChannelId = "2",
-                        KnobId = "13",
+                        GearId = 3,
+                        ChannelId = 2,
+                        KnobId = 13,
                         KnobSetting = "Mic+25"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 14,
-                        GearId = "3",
-                        ChannelId = "2",
-                        KnobId = "14",
+                        GearId = 3,
+                        ChannelId = 2,
+                        KnobId = 14,
                         KnobSetting = "1200"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 15,
-                        GearId = "3",
-                        ChannelId = "2",
-                        KnobId = "15",
+                        GearId = 3,
+                        ChannelId = 2,
+                        KnobId = 15,
                         KnobSetting = "Full"
                     },
                     // song2/channel-1/1023
                     new ChannelToGear()
                     {
                         ChannelToGearId = 16,
-                        GearId = "4",
-                        ChannelId = "3",
-                        KnobId = "16",
+                        GearId = 4,
+                        ChannelId = 3,
+                        KnobId = 16,
                         KnobSetting = "220"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 17,
-                        GearId = "4",
-                        ChannelId = "3",
-                        KnobId = "17",
+                        GearId = 4,
+                        ChannelId = 3,
+                        KnobId = 17,
                         KnobSetting = "400@+1"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 18,
-                        GearId = "4",
-                        ChannelId = "3",
-                        KnobId = "18",
+                        GearId = 4,
+                        ChannelId = 3,
+                        KnobId = 18,
                         KnobSetting = "2k2@-3"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 19,
-                        GearId = "4",
-                        ChannelId = "3",
-                        KnobId = "19",
+                        GearId = 4,
+                        ChannelId = 3,
+                        KnobId = 19,
                         KnobSetting = "10k@+2.5"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 20,
-                        GearId = "4",
-                        ChannelId = "3",
-                        KnobId = "20",
+                        GearId = 4,
+                        ChannelId = 3,
+                        KnobId = 20,
                         KnobSetting = "Mic+30"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 21,
-                        GearId = "4",
-                        ChannelId = "3",
-                        KnobId = "21",
+                        GearId = 4,
+                        ChannelId = 3,
+                        KnobId = 21,
                         KnobSetting = "1200"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 22,
-                        GearId = "4",
-                        ChannelId = "3",
-                        KnobId = "22",
+                        GearId = 4,
+                        ChannelId = 3,
+                        KnobId = 22,
                         KnobSetting = ".75"
                     },
                     // song2/channel-1/LA-2A
                     new ChannelToGear()
                     {
                         ChannelToGearId = 23,
-                        GearId = "2",
-                        ChannelId = "3",
-                        KnobId = "7",
+                        GearId = 2,
+                        ChannelId = 3,
+                        KnobId = 7,
                         KnobSetting = "27"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 24,
-                        GearId = "2",
-                        ChannelId = "3",
-                        KnobId = "8",
+                        GearId = 2,
+                        ChannelId = 3,
+                        KnobId = 8,
                         KnobSetting = "47"
                     },
                     // song2/channel-2-tg2
                     new ChannelToGear()
                     {
                         ChannelToGearId = 25,
-                        GearId = "1",
-                        ChannelId = "4",
-                        KnobId = "1",
+                        GearId = 1,
+                        ChannelId = 4,
+                        KnobId = 1,
                         KnobSetting = "25"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 26,
-                        GearId = "1",
-                        ChannelId = "4",
-                        KnobId = "2",
+                        GearId = 1,
+                        ChannelId = 4,
+                        KnobId = 2,
                         KnobSetting = "4"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 27,
-                        GearId = "1",
-                        ChannelId = "4",
-                        KnobId = "3",
+                        GearId = 1,
+                        ChannelId = 4,
+                        KnobId = 3,
                         KnobSetting = "Off"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 28,
-                        GearId = "1",
-                        ChannelId = "4",
-                        KnobId = "4",
+                        GearId = 1,
+                        ChannelId = 4,
+                        KnobId = 4,
                         KnobSetting = "On"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 29,
-                        GearId = "1",
-                        ChannelId = "4",
-                        KnobId = "5",
+                        GearId = 1,
+                        ChannelId = 4,
+                        KnobId = 5,
                         KnobSetting = "Off"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 30,
-                        GearId = "1",
-                        ChannelId = "4",
-                        KnobId = "6",
+                        GearId = 1,
+                        ChannelId = 4,
+                        KnobId = 6,
                         KnobSetting = "Off"
                     },
                     // song2/channel-2-PURPLE-MC77
                     new ChannelToGear()
                     {
                         ChannelToGearId = 31,
-                        GearId = "5",
-                        ChannelId = "4",
-                        KnobId = "23",
+                        GearId = 5,
+                        ChannelId = 4,
+                        KnobId = 23,
                         KnobSetting = "33"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 32,
-                        GearId = "5",
-                        ChannelId = "4",
-                        KnobId = "24",
+                        GearId = 5,
+                        ChannelId = 4,
+                        KnobId = 24,
                         KnobSetting = "21"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 33,
-                        GearId = "5",
-                        ChannelId = "4",
-                        KnobId = "25",
+                        GearId = 5,
+                        ChannelId = 4,
+                        KnobId = 25,
                         KnobSetting = "3.75"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 34,
-                        GearId = "5",
-                        ChannelId = "4",
-                        KnobId = "26",
+                        GearId = 5,
+                        ChannelId = 4,
+                        KnobId = 26,
                         KnobSetting = "6"
                     },
                     new ChannelToGear()
                     {
                         ChannelToGearId = 35,
-                        GearId = "5",
-                        ChannelId = "4",
-                        KnobId = "27",
+                        GearId = 5,
+                        ChannelId = 4,
+                        KnobId = 27,
                         KnobSetting = "8"
                     }
                 );

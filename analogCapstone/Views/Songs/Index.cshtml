@@ -1,0 +1,47 @@
+﻿@model IEnumerable<analogCapstone.Models.Song>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SongTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BandArtistName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Channels)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BandArtistName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Channels.Count)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SongId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SongId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SongId">Delete would need to bechanged</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

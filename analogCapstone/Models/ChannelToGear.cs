@@ -15,13 +15,13 @@ namespace analogCapstone.Models
         [Required]
         public string KnobSetting { get; set; }
 
-        public string GearId { get; set; }
+        public int GearId { get; set; }
         public Gear Gear { get; set; }
 
-        public string ChannelId {get; set;}
+        public int ChannelId {get; set;}
         public Channel Channel { get; set; }
 
-        public string KnobId { get; set; }
+        public int? KnobId { get; set; }
         public Knob Knob { get; set; }
 
 

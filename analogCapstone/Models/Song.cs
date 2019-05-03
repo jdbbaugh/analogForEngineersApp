@@ -12,7 +12,7 @@ namespace analogCapstone.Models
         public int SongId { get; set; }
 
         [Required]
-        [Display(Name = "Song Title")]
+        [Display(Name = "Mixes")]
         public string SongTitle { get; set; }
         
         [Required]

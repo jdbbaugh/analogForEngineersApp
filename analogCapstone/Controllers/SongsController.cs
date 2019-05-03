@@ -77,11 +77,12 @@ namespace analogCapstone.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = await GetCurrentUserAsync();
+                song.ApplicationUserId = user.Id;
                 _context.Add(song);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", song.ApplicationUserId);
             return View(song);
         }
 

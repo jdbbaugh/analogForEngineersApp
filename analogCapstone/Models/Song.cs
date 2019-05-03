@@ -18,7 +18,8 @@ namespace analogCapstone.Models
         [Required]
         [Display(Name="Band/Artist")]
         public string BandArtistName { get; set; }
-    
+
+        
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 

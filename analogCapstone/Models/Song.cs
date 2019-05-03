@@ -12,13 +12,13 @@ namespace analogCapstone.Models
         public int SongId { get; set; }
 
         [Required]
-        [Display(Name = "Song Title")]
+        [Display(Name = "Mix Name")]
         public string SongTitle { get; set; }
         
         [Required]
-        [Display(Name="Band or Artist Name")]
+        [Display(Name="Band/Artist")]
         public string BandArtistName { get; set; }
-
+    
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 

@@ -12,7 +12,7 @@ namespace analogCapstone.Models
         public int KnobId { get; set; }
         public string KnobName { get; set; }
 
-        public string GearId { get; set; }
+        public int GearId { get; set; }
         public Gear Gear { get; set; }
 
 

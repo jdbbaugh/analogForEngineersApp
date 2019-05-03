@@ -15,7 +15,7 @@ namespace analogCapstone.Models
         [Display(Name="Channel Name")]
         public string ChannelName { get; set; }
 
-        public string SongId { get; set; }
+        public int SongId { get; set; }
         public Song Song { get; set; }
 
         public virtual ICollection<ChannelToGear> ChannelToGears { get; set; }

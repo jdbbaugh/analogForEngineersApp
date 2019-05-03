@@ -1,0 +1,36 @@
+﻿@model analogCapstone.Models.Song
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Song</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BandArtistName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BandArtistName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Channels)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Channels.Count)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SongId">Edit</a> |
+    <a asp-action="Index">To All Mixes</a>
+</div>

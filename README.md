@@ -1,4 +1,4 @@
 # analogForEngineersApp
 
 ## Enitity Relationship Diagram
-<img style = "max-height: 10px;" src="./analogCapstone/wwwroot/images/logoForAnalog.png" />
+<img width="150" height="100" src="./analogCapstone/wwwroot/images/logoForAnalog.png" />

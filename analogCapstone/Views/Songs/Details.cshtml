@@ -4,32 +4,36 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@Html.DisplayFor(model => model.SongTitle)</h1>
+<p>By: @Html.DisplayFor(model => model.BandArtistName)</p>
 
-<div>
-    <h4>Song</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SongTitle)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SongTitle)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.BandArtistName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.BandArtistName)
-        </dd>
-        <dt class="col-sm-2">
+<table class="table">
+    <thead>
+    <tr>
+        <th>
             @Html.DisplayNameFor(model => model.Channels)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Channels.Count)
-        </dd>
-    </dl>
-</div>
+        </th>
+        <th>
+            Gear Pieces
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Channels)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChannelName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChannelToGears.Count)
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
+
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.SongId">Edit</a> |
     <a asp-action="Index">To All Mixes</a>

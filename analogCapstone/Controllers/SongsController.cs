@@ -52,6 +52,27 @@ namespace analogCapstone.Controllers
             var song = await _context.Song
                 .Include(s => s.ApplicationUser)
                 .Include(c => c.Channels)
+                .ThenInclude(g => g.ChannelToGears)
+                .ThenInclude(ag => ag.Gear)
+                .FirstOrDefaultAsync(m => m.SongId == id);
+            if (song == null)
+            {
+                return NotFound();
+            }
+
+            return View(song);
+        }
+
+        public async Task<IActionResult> TrackDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var song = await _context.Song
+                .Include(s => s.ApplicationUser)
+                .Include(c => c.Channels)
                 .FirstOrDefaultAsync(m => m.SongId == id);
             if (song == null)
             {

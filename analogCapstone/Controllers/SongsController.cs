@@ -106,6 +106,30 @@ namespace analogCapstone.Controllers
             return View(song);
         }
 
+        public IActionResult CreateChannel(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            ViewData["SongId"] = new SelectList(_context.Song, "Id", "Id");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateChannel([Bind("ChannelId,ChannelName,SongId")] Channel channel, int id)
+        {
+            if (ModelState.IsValid)
+            {
+                channel.SongId = id;
+                _context.Add(channel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(channel);
+        }
+
         // GET: Songs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

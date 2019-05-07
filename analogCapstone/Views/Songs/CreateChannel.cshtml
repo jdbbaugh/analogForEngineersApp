@@ -1,0 +1,30 @@
+﻿@model analogCapstone.Models.Channel
+
+@{
+    ViewData["Title"] = "CreateChannel";
+}
+
+<h1>CreateChannel</h1>
+
+<h4>Channel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateChannel">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ChannelName" class="control-label"></label>
+                <input asp-for="ChannelName" class="form-control" />
+                <span asp-validation-for="ChannelName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

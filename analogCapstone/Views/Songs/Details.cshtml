@@ -19,22 +19,28 @@
     </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Channels)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChannelName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChannelToGears.Count)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Channels)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChannelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChannelToGears.Count)
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
+    
+<form asp-action="CreateChannel" asp-route-id="@Model.SongId">
+    @*<input type="hidden"  />*@
+    <input type="submit" value="Add Channel" class="btn btn-primary" />
+</form>
 
-
+<br/>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.SongId">Edit</a> |
+
+    <a asp-action="Edit" asp-route-id="@Model.SongId">Edit Artist/Song Titles</a> |
     <a asp-action="Index">To All Mixes</a>
 </div>

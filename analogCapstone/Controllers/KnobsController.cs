@@ -10,22 +10,23 @@ using analogCapstone.Models;
 
 namespace analogCapstone.Controllers
 {
-    public class GearsController : Controller
+    public class KnobsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public GearsController(ApplicationDbContext context)
+        public KnobsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Gears
+        // GET: Knobs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Gear.OrderBy(o => o.Type).ToListAsync());
+            var applicationDbContext = _context.Knob.Include(k => k.Gear);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Gears/Details/5
+        // GET: Knobs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,40 +34,42 @@ namespace analogCapstone.Controllers
                 return NotFound();
             }
 
-            var gear = await _context.Gear
-                .Include(k => k.Knobs)
-                .FirstOrDefaultAsync(m => m.GearId == id);
-            if (gear == null)
+            var knob = await _context.Knob
+                .Include(k => k.Gear)
+                .FirstOrDefaultAsync(m => m.KnobId == id);
+            if (knob == null)
             {
                 return NotFound();
             }
 
-            return View(gear);
+            return View(knob);
         }
 
-        // GET: Gears/Create
+        // GET: Knobs/Create
         public IActionResult Create()
         {
+            ViewData["GearId"] = new SelectList(_context.Gear, "GearId", "Make");
             return View();
         }
 
-        // POST: Gears/Create
+        // POST: Knobs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GearId,Make,Model,Type,OrdinalsAvailable")] Gear gear)
+        public async Task<IActionResult> Create([Bind("KnobId,KnobName,GearId,Ordinal")] Knob knob)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(gear);
+                _context.Add(knob);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(gear);
+            ViewData["GearId"] = new SelectList(_context.Gear, "GearId", "Make", knob.GearId);
+            return View(knob);
         }
 
-        // GET: Gears/Edit/5
+        // GET: Knobs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,23 +77,23 @@ namespace analogCapstone.Controllers
                 return NotFound();
             }
 
-            var gear = await _context.Gear
-                .FindAsync(id);
-            if (gear == null)
+            var knob = await _context.Knob.FindAsync(id);
+            if (knob == null)
             {
                 return NotFound();
             }
-            return View(gear);
+            ViewData["GearId"] = new SelectList(_context.Gear, "GearId", "Make", knob.GearId);
+            return View(knob);
         }
 
-        // POST: Gears/Edit/5
+        // POST: Knobs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GearId,Make,Model,Type,OrdinalsAvailable")] Gear gear)
+        public async Task<IActionResult> Edit(int id, [Bind("KnobId,KnobName,GearId,Ordinal")] Knob knob)
         {
-            if (id != gear.GearId)
+            if (id != knob.KnobId)
             {
                 return NotFound();
             }
@@ -99,12 +102,12 @@ namespace analogCapstone.Controllers
             {
                 try
                 {
-                    _context.Update(gear);
+                    _context.Update(knob);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GearExists(gear.GearId))
+                    if (!KnobExists(knob.KnobId))
                     {
                         return NotFound();
                     }
@@ -115,10 +118,11 @@ namespace analogCapstone.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(gear);
+            ViewData["GearId"] = new SelectList(_context.Gear, "GearId", "Make", knob.GearId);
+            return View(knob);
         }
 
-        // GET: Gears/Delete/5
+        // GET: Knobs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,30 +130,31 @@ namespace analogCapstone.Controllers
                 return NotFound();
             }
 
-            var gear = await _context.Gear
-                .FirstOrDefaultAsync(m => m.GearId == id);
-            if (gear == null)
+            var knob = await _context.Knob
+                .Include(k => k.Gear)
+                .FirstOrDefaultAsync(m => m.KnobId == id);
+            if (knob == null)
             {
                 return NotFound();
             }
 
-            return View(gear);
+            return View(knob);
         }
 
-        // POST: Gears/Delete/5
+        // POST: Knobs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var gear = await _context.Gear.FindAsync(id);
-            _context.Gear.Remove(gear);
+            var knob = await _context.Knob.FindAsync(id);
+            _context.Knob.Remove(knob);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GearExists(int id)
+        private bool KnobExists(int id)
         {
-            return _context.Gear.Any(e => e.GearId == id);
+            return _context.Knob.Any(e => e.KnobId == id);
         }
     }
 }

@@ -36,7 +36,27 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.GearId">Edit</a> |
-    <a asp-action="Index">Back to Gear</a>
-</div>
+<table>
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Knobs)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Knobs)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KnobName)
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.GearId">Edit</a> |
+        <a asp-action="Index">Back to Gear</a>
+    </div>

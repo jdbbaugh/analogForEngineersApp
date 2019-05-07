@@ -53,7 +53,6 @@ namespace analogCapstone.Controllers
                 .Include(s => s.ApplicationUser)
                 .Include(c => c.Channels)
                 .ThenInclude(g => g.ChannelToGears)
-                .ThenInclude(ag => ag.Gear)
                 .FirstOrDefaultAsync(m => m.SongId == id);
             if (song == null)
             {

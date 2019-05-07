@@ -1,0 +1,62 @@
+﻿@model analogCapstone.Models.Gear
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Gear</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Make)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Make)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrdinalsAvailable)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrdinalsAvailable)
+        </dd>
+    </dl>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Knobs)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Knobs)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KnobName)
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.GearId">Edit</a> |
+        <a asp-action="Index">Back to Gear</a>
+    </div>

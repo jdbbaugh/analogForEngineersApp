@@ -44,7 +44,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background-color: blue;
+  background-color: rgb(86,90,93);
 
 }
 .footer {

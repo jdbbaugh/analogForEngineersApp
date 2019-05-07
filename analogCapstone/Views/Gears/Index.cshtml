@@ -1,0 +1,57 @@
+﻿@model IEnumerable<analogCapstone.Models.Gear>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div>
+    <img class="rounded-circle" src="http://www.godcitystudio.com/wp-content/uploads/2015/03/I23A8743.jpg" alt="Generic placeholder image" width="140" height="140">
+</div>
+    <h1>Available Studio Gear</h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.GearId">@Html.DisplayFor(modelItem => item.Make)</a>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GearId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.GearId">Delete</a> |
+                <a asp-action="EditKnobs" asp-route-id="@item.GearId">Edit Knob Names</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<form asp-action="Create">
+    @*<input type="hidden"  />*@
+    <input type="submit" value="Add Gear" class="btn btn-primary" />
+</form>

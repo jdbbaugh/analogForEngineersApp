@@ -1,4 +1,5 @@
-﻿@model analogCapstone.Models.Song
+﻿@using Microsoft.EntityFrameworkCore.Internal
+@model analogCapstone.Models.Song
 
 @{
     ViewData["Title"] = "Details";
@@ -26,7 +27,7 @@
                 @Html.DisplayFor(modelItem => item.ChannelName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ChannelToGears.Count)
+                @item.ChannelToGears.Select(cg => cg.GearId).Distinct().Count()
             </td>
         </tr>
     }

@@ -7,24 +7,52 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using analogCapstone.Data;
 using analogCapstone.Models;
+using analogCapstone.Models.ViewModel;
+using Microsoft.AspNetCore.Identity;
 
 namespace analogCapstone.Controllers
 {
     public class ChannelsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ChannelsController(ApplicationDbContext context)
+        public ChannelsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
-
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
         // GET: Channels
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Channel
                 .Include(c => c.Song);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> SongChannelsIndex(int? id)
+        {
+            var user = await GetCurrentUserAsync();
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var channelList =  await _context.Channel
+                .Include(c => c.Song)
+                .Include(c => c.ChannelToGears)
+                .Where(c => c.SongId == id).ToListAsync();
+
+            var songForIndex = _context.Song
+                .Where(s => s.SongId == id).FirstOrDefault();
+
+            ChannelIndexViewModel channelIndex = new ChannelIndexViewModel();
+            channelIndex.ApplicationUser = user;
+            channelIndex.Channels = channelList;
+            channelIndex.Song = songForIndex;
+
+            return View(channelIndex);
         }
 
         // GET: Channels/Details/5

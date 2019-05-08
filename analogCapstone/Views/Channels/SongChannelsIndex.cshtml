@@ -1,0 +1,45 @@
+﻿@model analogCapstone.Models.ViewModel.ChannelIndexViewModel
+
+@{
+    ViewData["Title"] = "SongChannelsIndex";
+}
+
+<div>
+    <img class="rounded-circle" src="@Html.DisplayFor(modelItem => Model.ApplicationUser.producerImgUrl)" alt="Generic placeholder image" width="100" height="100">
+</div>
+
+<h1>@Html.DisplayFor(Model => Model.Song.SongTitle)</h1>
+<p>by: @Html.DisplayFor(Model => Model.Song.BandArtistName)</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => Model.Song.SongTitle)
+        </th>
+        <th>
+            Gear Pieces
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Channels)
+    {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ChannelId">@Html.DisplayFor(modelItem => item.ChannelName)</a>
+                @*@Html.DisplayFor(modelItem => item.ChannelName)*@
+            </td>
+            <td>
+                @item.ChannelToGears.Select(cg => cg.GearId).Distinct().Count()
+            </td>
+        </tr>
+
+    }
+    </tbody>
+</table>
+
+<form asp-action="CreateChannel" asp-route-id="@Model.Song.SongId">
+    @*<input type="hidden"  />*@
+    <input type="submit" value="Add Channel" class="btn btn-primary" />
+</form>

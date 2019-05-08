@@ -30,8 +30,10 @@
         {
             <tr>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.SongId">@Html.DisplayFor(modelItem => item.SongTitle)</a>
-
+                    
+                    <a onclick="location.href = '@Url.Action("SongChannelsIndex", "Channels", new {id = item.SongId})'">
+                        @Html.DisplayFor(modelItem => item.SongTitle)
+                    </a>
                 </td>
                 <td>
                     <a asp-action="TrackDetails" asp-route-id="@item.SongId">@Html.DisplayFor(modelItem => item.BandArtistName)</a>

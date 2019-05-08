@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace analogCapstone.Models.ViewModel
 {
-    public class ChannelViewIndex
+    public class ChannelIndexViewModel
     {
-        public Channel Channel { get; set; }
-
+        public ApplicationUser ApplicationUser { get; set; }
+        public Song Song { get; set; }
+        public List<Channel> Channels { get; set; }
     }
 }

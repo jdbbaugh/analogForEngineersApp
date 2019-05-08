@@ -10,38 +10,41 @@
 
 <table class="table">
     <thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Channels)
-        </th>
-        <th>
-            Gear Pieces
-        </th>
-    </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Channels)
+            </th>
+            <th>
+                Gear Pieces
+            </th>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Channels)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChannelName)
-            </td>
-            <td>
-                @item.ChannelToGears.Select(cg => cg.GearId).Distinct().Count()
-            </td>
-        </tr>
-    }
+        @foreach (var item in Model.Channels)
+        {
+            <tr>
+                <td>
+                    <a onclick="location.href = '@Url.Action("Details", "Channels", new { id = item.ChannelId})'">@Html.DisplayFor(modelItem => item.ChannelName)</a>
+                    
+                </td>
+                <td>
+                    @item.ChannelToGears.Select(cg => cg.GearId).Distinct().Count()
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
-    
+
 <form asp-action="CreateChannel" asp-route-id="@Model.SongId">
     @*<input type="hidden"  />*@
     <input type="submit" value="Add Channel" class="btn btn-primary" />
 </form>
 
-<br/>
+<br />
 <div>
 
     <a asp-action="Edit" asp-route-id="@Model.SongId">Edit Artist/Song Titles</a> |
     <a asp-action="Index">To All Mixes</a>
 </div>
+
+

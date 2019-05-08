@@ -39,7 +39,11 @@
     </tbody>
 </table>
 
-<form asp-action="CreateChannel" asp-route-id="@Model.Song.SongId">
+<form  asp-action="Create" asp-route-id="@Model.Song.SongId">
     @*<input type="hidden"  />*@
     <input type="submit" value="Add Channel" class="btn btn-primary" />
 </form>
+
+<a onclick="location.href = '@Url.Action("CreateChannel", "Songs", new {id = Model.Song.SongId})'">
+    add chan
+</a>

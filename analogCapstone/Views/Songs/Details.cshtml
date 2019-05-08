@@ -24,8 +24,9 @@
         {
             <tr>
                 <td>
-                    <a onclick="location.href = '@Url.Action("Details", "Channels", new { id = item.ChannelId})'">@Html.DisplayFor(modelItem => item.ChannelName)</a>
-                    
+                    <a onclick="location.href = '@Url.Action("Details", "Channels", new {id = item.ChannelId})'">
+                        @Html.DisplayFor(modelItem => item.ChannelName)
+                    </a>
                 </td>
                 <td>
                     @item.ChannelToGears.Select(cg => cg.GearId).Distinct().Count()

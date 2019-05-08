@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using analogCapstone.Data;
 using analogCapstone.Models;
+using analogCapstone.Models.ViewModel;
 using Microsoft.AspNetCore.Identity;
 
 namespace analogCapstone.Controllers
@@ -34,11 +35,14 @@ namespace analogCapstone.Controllers
             }
 
             var userid = user.Id;
-            var applicationDbContext = _context.Song
-                .Include(s => s.ApplicationUser)
-                .Include(c => c.Channels)
-                .Where(o => o.ApplicationUser.Id == userid);
-            return View(await applicationDbContext.ToListAsync());
+            var songList = await _context.Song
+                .Include(s => s.Channels)
+                .Where(s => s.ApplicationUserId == userid).ToListAsync();
+
+            SongIndexViewModel newModel = new SongIndexViewModel();
+            newModel.ApplicationUser = user;
+            newModel.Songs = songList;
+            return View(newModel);
         }
 
         // GET: Songs/Details/5

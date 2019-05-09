@@ -1,18 +1,44 @@
-﻿@model analogCapstone.Models.Channel
+﻿@model analogCapstone.Models.ViewModel.GearOnChannelIndexViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>@Html.DisplayFor(model => model.Song.SongTitle)</h1>
-
 <div>
-    <h4>@Html.DisplayFor(model => model.ChannelName)</h4>
-    <hr />
-    
+    <img class="rounded-circle" src="@Html.DisplayFor(modelItem => Model.ApplicationUser.producerImgUrl)" alt="Generic placeholder image" width="100" height="100">
 </div>
 
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ChannelId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<h1>@Model.Channel.ChannelName</h1>
+
+<table>
+    @foreach (var item in Model.Channel.ChannelToGears)
+    {
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.Gear.Make)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Gear.Model)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Gear.Knobs)
+        </th>
+    </tr>
+    </thead>
+
+    }
+    <tbody>
+    @*@foreach (var item in Model.Channel.ChannelToGears)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Knob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gear.Model)
+            </td>
+        </tr>*@
+    }
+    </tbody>
+</table>

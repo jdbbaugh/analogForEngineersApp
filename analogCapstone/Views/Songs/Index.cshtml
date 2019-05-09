@@ -1,40 +1,36 @@
-﻿@model IEnumerable<analogCapstone.Models.Song>
+﻿@model analogCapstone.Models.ViewModel.SongIndexViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-@foreach (var item in Model)
-{
 
-    <div>
-        <img class="rounded-circle" src="@Html.DisplayFor(modelItem => item.ApplicationUser.producerImgUrl)" alt="Generic placeholder image" width="140" height="140">
-    </div>
-}
-<p></p>
+<div>
+    <img class="rounded-circle" src="@Html.DisplayFor(modelItem => Model.ApplicationUser.producerImgUrl)" alt="Generic placeholder image" width="100" height="100">
+</div>
+<br/>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SongTitle)
+                @Html.DisplayNameFor(model => model.Songs[0].SongTitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BandArtistName)
+                @Html.DisplayNameFor(model => model.Songs[0].BandArtistName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Channels)
+                @Html.DisplayNameFor(model => model.Songs[0].Channels)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Songs)
         {
             <tr>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.SongId">@Html.DisplayFor(modelItem => item.SongTitle)</a>
-
+                    <a asp-controller="Channels" asp-action="SongChannelsIndex" asp-route-id="@item.SongId">@Html.DisplayFor(modelItem => item.SongTitle)</a>
                 </td>
                 <td>
                     <a asp-action="TrackDetails" asp-route-id="@item.SongId">@Html.DisplayFor(modelItem => item.BandArtistName)</a>

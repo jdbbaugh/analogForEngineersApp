@@ -7,22 +7,35 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using analogCapstone.Data;
 using analogCapstone.Models;
+using analogCapstone.Models.ViewModel;
+using Microsoft.AspNetCore.Identity;
 
 namespace analogCapstone.Controllers
 {
     public class GearsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public GearsController(ApplicationDbContext context)
+        public GearsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Gears
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Gear.OrderBy(o => o.Type).ToListAsync());
+            var user = await GetCurrentUserAsync();
+            var gearList = await _context.Gear
+                .Include(g => g.ChannelToGears)
+                .Include(g => g.Knobs)
+                .ToListAsync();
+            GearIndexViewModel allGear = new GearIndexViewModel();
+            allGear.ApplicationUser = user;
+            allGear.Gears = gearList;
+            return View(allGear);
         }
 
         // GET: Gears/Details/5

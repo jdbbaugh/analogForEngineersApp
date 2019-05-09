@@ -67,17 +67,7 @@ namespace analogCapstone.Controllers
             }
 
             var model = new GearOnChannelIndexViewModel();
-            //var settings =new SettingKnobViewModel();
 
-            //var channelGears = await _context.ChannelToGear
-            //    .Include(cg => cg.Knob)
-            //    .ThenInclude(k => k.KnobName)
-            //    .Include(cg => cg.Gear)
-            //    .Where(cg => cg.ChannelId == id).ToListAsync();
-
-
-
-            //return View(model);
             var getChannel = await _context.Channel
                 .FirstOrDefaultAsync(ch => ch.ChannelId == id);
 
@@ -104,41 +94,6 @@ namespace analogCapstone.Controllers
             model.GearGroups = getGear;
 
             return View(model);
-
-            //model.GearGroups = await (
-            //    from cg in _context.ChannelToGear
-            //    join g in _context.Gear
-            //        on cg.GearId equals g.GearId
-            //    join k in _context.Knob
-            //        on g.GearId equals k.GearId
-            //    group new { cg, g } by new { cg.ChannelToGearId, g.Make, g.Model} into grouped
-            //    select new GearGrouped
-            //    {
-            //        TypeId = grouped.Key.ChannelToGearId,
-            //        GearMake = grouped.Key.Make,
-            //        GearModel = grouped.Key.Model,
-            //        GearSettings = 
-            //    }).ToListAsync();
-
-            //return View(model);
-
-
-            //var channelObject = await _context.Channel
-            //    .Include(c => c.ChannelToGears)
-            //    .ThenInclude(cg => cg.Gear)
-            //    .ThenInclude(cg => cg.Knobs)
-            //    .Where(c => c.ChannelId == id)
-            //    .FirstOrDefaultAsync();
-            //if (channelObject == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //GearOnChannelIndexViewModel gearChains = new GearOnChannelIndexViewModel();
-            //gearChains.ApplicationUser = user;
-            //gearChains.Channel = channelObject;
-
-            //return View(gearChains);
         }
 
         // GET: Channels/Create

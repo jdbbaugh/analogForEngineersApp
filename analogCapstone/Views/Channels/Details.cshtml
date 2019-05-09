@@ -1,44 +1,48 @@
-﻿@*@model analogCapstone.Models.ViewModel.GearOnChannelIndexViewModel
+﻿@model analogCapstone.Models.ViewModel.GearOnChannelIndexViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
 <div>
-    <img class="rounded-circle" src="@Html.DisplayFor(modelItem => Model.)" alt="Generic placeholder image" width="100" height="100">
+    <img class="rounded-circle" src="@Html.DisplayFor(modelItem => Model.ApplicationUser.producerImgUrl)" alt="Generic placeholder image" width="100" height="100">
 </div>
 
 <h1>@Model.Channel.ChannelName</h1>
 
-<table>
-    @foreach (var item in Model.Channel.ChannelToGears)
-    {
+<table class="table">
     <thead>
     <tr>
         <th>
-            @Html.DisplayFor(modelItem => item.Gear.Make)
+            @Html.DisplayNameFor(model => model.GearGroups[0].GearMake)
         </th>
         <th>
-            @Html.DisplayFor(modelItem => item.Gear.Model)
+            @Html.DisplayNameFor(model => model.GearGroups[0].GearModel)
         </th>
         <th>
-            @Html.DisplayFor(modelItem => item.Gear.Knobs)
+            Knob Settings
         </th>
     </tr>
     </thead>
-
-    }
     <tbody>
-    @foreach (var item in Model.Channel.ChannelToGears)
+    @foreach (var item in Model.GearGroups)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Knob)
+                @Html.DisplayFor(modelItem => item.GearMake)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gear.Model)
+                @Html.DisplayFor(modelItem => item.GearModel)
             </td>
+            @foreach (var notherItem in item.GearSettings)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => notherItem.KnobLabel): <br/> @Html.DisplayFor(modelItem => notherItem.Setting)
+                </td>
+            }
         </tr>
     }
     </tbody>
-</table>*@
+</table>
+
+<a asp-action="SongChannelsIndex" asp-route-id="@Model.Channel.ChannelId">To All Mixes</a>

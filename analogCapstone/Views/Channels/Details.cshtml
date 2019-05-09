@@ -11,21 +11,25 @@
 <h1>@Model.Channel.ChannelName</h1>
 
 <table>
+    @foreach (var item in Model.Channel.ChannelToGears)
+    {
     <thead>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Channel.ChannelToGears[0].Gear.Make)
+            @Html.DisplayFor(modelItem => item.Gear.Make)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Channel.ChannelToGears[0].Gear.Model)
+            @Html.DisplayFor(modelItem => item.Gear.Model)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Channel.ChannelToGears[0].Gear.Knobs)
+            @Html.DisplayFor(modelItem => item.Gear.Knobs)
         </th>
     </tr>
     </thead>
+
+    }
     <tbody>
-    @foreach (var item in Model.Channel.ChannelToGears)
+    @*@foreach (var item in Model.Channel.ChannelToGears)
     {
         <tr>
             <td>
@@ -34,7 +38,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Gear.Model)
             </td>
-        </tr>
+        </tr>*@
     }
     </tbody>
 </table>

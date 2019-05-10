@@ -98,9 +98,9 @@ namespace analogCapstone.Controllers
         }
 
         // GET: Channels/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
-            ViewData["SongId"] = new SelectList(_context.Song, "SongId", "BandArtistName");
+            ViewData["SongId"] = id;
             return View();
         }
 
@@ -109,17 +109,31 @@ namespace analogCapstone.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ChannelId,ChannelName,SongId")] Channel channel)
+        public async Task<IActionResult> Create([Bind("ChannelName,SongId")] Channel channel, int id)
         {
             if (ModelState.IsValid)
             {
+                channel.SongId = id;
                 _context.Add(channel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("SongChannelsIndex", new {id = id});
             }
-            ViewData["SongId"] = new SelectList(_context.Song, "SongId", "BandArtistName", channel.SongId);
+
+            ViewData["SongId"] = id;
             return View(channel);
         }
+
+        //public async Task<IActionResult> EditGearSettings(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+
+        //}
+
+        
 
         // GET: Channels/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -137,6 +151,8 @@ namespace analogCapstone.Controllers
             ViewData["SongId"] = new SelectList(_context.Song, "SongId", "BandArtistName", channel.SongId);
             return View(channel);
         }
+
+
 
         // POST: Channels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

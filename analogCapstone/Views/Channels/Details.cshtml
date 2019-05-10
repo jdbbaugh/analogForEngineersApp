@@ -40,9 +40,10 @@
                     @Html.DisplayFor(modelItem => notherItem.KnobLabel): <br/> @Html.DisplayFor(modelItem => notherItem.Setting)
                 </td>
             }
+            <td><a asp-action="SongChannelsIndex" asp-route-id="@Model.Channel.SongId">Edit Settings</a></td>
         </tr>
     }
     </tbody>
 </table>
 
-<a asp-action="SongChannelsIndex" asp-route-id="@Model.Channel.SongId">To All Mixes</a>
+<a asp-action="SongChannelsIndex" asp-route-id="@Model.Channel.SongId">To Song Channels</a>

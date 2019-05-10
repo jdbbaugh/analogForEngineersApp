@@ -39,7 +39,7 @@
     </tbody>
 </table>
 
-<form asp-controller="Songs" asp-action="CreateChannel" asp-route-id="@Model.Song.SongId">
+<form asp-action="Create" asp-route-Id="@Model.Song.SongId">
     @*<input type="hidden"  />*@
     <input type="submit" value="Add Channel" class="btn btn-primary" />
 </form>

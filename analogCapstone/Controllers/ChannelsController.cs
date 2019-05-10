@@ -56,6 +56,23 @@ namespace analogCapstone.Controllers
             return View(channelIndex);
         }
 
+        public async Task<IActionResult> AddGearPieceToChannel()
+        {
+            IEnumerable<SelectListItem> gears = _context.Gear.Select(g => new SelectListItem
+            {
+                Value = g.GearId.ToString(),
+                Text = $"{g.Make} {g.Model}"
+            });
+            ViewBag.GearTitle = gears;
+            return View();
+        }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> AddGearPieceToChannel(int id)
+        //{
+        //    return View();
+        //}
         // GET: Channels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -88,7 +105,8 @@ namespace analogCapstone.Controllers
                             Setting = ks.KnobSetting
                         }).ToList()
                 }).ToListAsync();
-           
+
+            var allGearAvailable = await _context.Gear.ToListAsync();
 
             model.ApplicationUser = user;
             model.Channel = getChannel;

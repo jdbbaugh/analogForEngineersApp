@@ -46,4 +46,9 @@
     </tbody>
 </table>
 
+<form asp-action="AddGearPieceToChannel" >
+    @*<input type="hidden"  />*@
+    <input type="submit" value="Add Gear To Channel" class="btn btn-primary" />
+</form>
+<br/>
 <a asp-action="SongChannelsIndex" asp-route-id="@Model.Channel.SongId">To Song Channels</a>

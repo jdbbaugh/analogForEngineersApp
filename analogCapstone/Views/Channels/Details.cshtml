@@ -10,35 +10,39 @@
 
 <h1>@Model.Channel.ChannelName</h1>
 
-<table>
-    @foreach (var item in Model.Channel.ChannelToGears)
-    {
+<table class="table">
     <thead>
     <tr>
         <th>
-            @Html.DisplayFor(modelItem => item.Gear.Make)
+            @Html.DisplayNameFor(model => model.GearGroups[0].GearMake)
         </th>
         <th>
-            @Html.DisplayFor(modelItem => item.Gear.Model)
+            @Html.DisplayNameFor(model => model.GearGroups[0].GearModel)
         </th>
         <th>
-            @Html.DisplayFor(modelItem => item.Gear.Knobs)
+            Knob Settings
         </th>
     </tr>
     </thead>
-
-    }
     <tbody>
-    @*@foreach (var item in Model.Channel.ChannelToGears)
+    @foreach (var item in Model.GearGroups)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Knob)
+                @Html.DisplayFor(modelItem => item.GearMake)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gear.Model)
+                @Html.DisplayFor(modelItem => item.GearModel)
             </td>
-        </tr>*@
+            @foreach (var notherItem in item.GearSettings)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => notherItem.KnobLabel): <br/> @Html.DisplayFor(modelItem => notherItem.Setting)
+                </td>
+            }
+        </tr>
     }
     </tbody>
 </table>
+
+<a asp-action="SongChannelsIndex" asp-route-id="@Model.Channel.SongId">To All Mixes</a>

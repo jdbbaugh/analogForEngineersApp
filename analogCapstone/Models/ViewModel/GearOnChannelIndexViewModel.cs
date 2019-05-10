@@ -9,8 +9,7 @@ namespace analogCapstone.Models.ViewModel
     {
         public ApplicationUser ApplicationUser { get; set; }
         public Channel Channel { get; set; }
-        public List<Gear> Gears { get; set; }
-        public List<ChannelToGear> ChannelToGears { get; set; }
+        public List<GearGrouped> GearGroups { get; set; }
 
     }
 }

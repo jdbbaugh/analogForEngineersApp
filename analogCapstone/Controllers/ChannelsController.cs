@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -65,23 +66,35 @@ namespace analogCapstone.Controllers
                 return NotFound();
             }
 
-            
-            var channelObject = await _context.Channel
-                .Include(c => c.ChannelToGears)
-                .ThenInclude(cg => cg.Gear)
-                .ThenInclude(cg => cg.Knobs)
-                .Where(c => c.ChannelId == id)
-                .FirstOrDefaultAsync();
-            if (channelObject == null)
-            {
-                return NotFound();
-            }
+            var model = new GearOnChannelIndexViewModel();
 
-            GearOnChannelIndexViewModel gearChains = new GearOnChannelIndexViewModel();
-            gearChains.ApplicationUser = user;
-            gearChains.Channel = channelObject;
+            var getChannel = await _context.Channel
+                .FirstOrDefaultAsync(ch => ch.ChannelId == id);
 
-            return View(gearChains);
+            var getGear = await _context.ChannelToGear
+                .Include(cg => cg.Knob)
+                .Include(cg => cg.Gear)
+                .Where(cg => cg.ChannelId == id)
+                .GroupBy(cg => cg.Gear)
+                .Select(group => new GearGrouped
+                {
+                    TypeId = group.Key.GearId,
+                    GearMake = group.Key.Make,
+                    GearModel = group.Key.Model,
+                    GearSettings = group
+                        .Select(ks => new SettingKnobViewModel
+                        {
+                            KnobLabel = ks.Knob.KnobName,
+                            Setting = ks.KnobSetting
+                        }).ToList()
+                }).ToListAsync();
+           
+
+            model.ApplicationUser = user;
+            model.Channel = getChannel;
+            model.GearGroups = getGear;
+
+            return View(model);
         }
 
         // GET: Channels/Create

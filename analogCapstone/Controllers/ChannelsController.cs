@@ -88,6 +88,7 @@ namespace analogCapstone.Controllers
                             Setting = ks.KnobSetting
                         }).ToList()
                 }).ToListAsync();
+           
 
             model.ApplicationUser = user;
             model.Channel = getChannel;

@@ -13,8 +13,9 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <input type="hidden" asp-for="SongId"/>
                 <label asp-for="ChannelName" class="control-label"></label>
-                <input asp-for="ChannelName" class="form-control" />
+                <input asp-for="ChannelName" class="form-control"/>
                 <span asp-validation-for="ChannelName" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -25,6 +26,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="SongChannelsIndex" asp-route-id="@ViewBag.SongId">Back to List</a>
 </div>
 

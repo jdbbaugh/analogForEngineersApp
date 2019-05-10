@@ -126,7 +126,7 @@ namespace analogCapstone.Controllers
         {
             if (ModelState.IsValid)
             {
-                channel.SongId = id;
+
                 _context.Add(channel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -137,6 +137,7 @@ namespace analogCapstone.Controllers
         // GET: Songs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            
             if (id == null)
             {
                 return NotFound();
@@ -147,7 +148,7 @@ namespace analogCapstone.Controllers
             {
                 return NotFound();
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", song.ApplicationUserId);
+            
             return View(song);
         }
 
@@ -156,8 +157,11 @@ namespace analogCapstone.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SongId,SongTitle,BandArtistName,ApplicationUserId")] Song song)
+        public async Task<IActionResult> Edit(int id, [Bind("SongId,SongTitle,BandArtistName,ApplicationUser, ApplicationUserId")] Song song)
         {
+            var user = await GetCurrentUserAsync();
+            song.ApplicationUser = user;
+        
             if (id != song.SongId)
             {
                 return NotFound();

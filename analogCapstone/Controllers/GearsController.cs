@@ -79,6 +79,23 @@ namespace analogCapstone.Controllers
             return View(gear);
         }
 
+        public async Task<IActionResult> EditKnobNames(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            AllKnobsEditViewModel allKnobs = new AllKnobsEditViewModel();
+            var knobsToEdit = await _context.Knob
+                .Where(k => k.GearId == id).ToListAsync();
+            var gearEditing = await _context.Gear
+                .FirstOrDefaultAsync(g => g.GearId == id);
+
+            allKnobs.Gear = gearEditing;
+            allKnobs.Knobs = knobsToEdit;
+            return View(allKnobs);
+        }
         // GET: Gears/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

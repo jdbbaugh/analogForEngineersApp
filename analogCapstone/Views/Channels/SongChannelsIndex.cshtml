@@ -33,6 +33,7 @@
             <td>
                 @item.ChannelToGears.Select(cg => cg.GearId).Distinct().Count()
             </td>
+            <td><a asp-action="Delete" asp-route-id="@item.ChannelId">Delete Channel</a></td>
         </tr>
 
     }

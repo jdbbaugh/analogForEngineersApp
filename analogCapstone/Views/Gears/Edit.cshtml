@@ -29,6 +29,10 @@
                 <span asp-validation-for="Type" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <input type="hidden" asp-for="OrdinalsAvailable" class="form-control" />
+                <span asp-validation-for="OrdinalsAvailable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

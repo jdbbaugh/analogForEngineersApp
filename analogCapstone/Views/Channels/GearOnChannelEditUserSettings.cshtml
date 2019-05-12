@@ -1,0 +1,46 @@
+﻿@model analogCapstone.Models.ChannelToGear
+
+@{
+    ViewData["Title"] = "GearOnChannelEditUserSettings";
+}
+
+<h1>GearOnChannelEditUserSettings</h1>
+
+<h4>ChannelToGear</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="GearOnChannelEditUserSettings">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.ChannelToGearId" />
+            <div class="form-group">
+                <label asp-for="@Model.KnobSetting" class="control-label"></label>
+                <input asp-for="@Model.KnobSetting" class="form-control" />
+                <span asp-validation-for="@Model.KnobSetting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.GearId" class="control-label"></label>
+                <select asp-for="@Model.GearId" class="form-control" ></select>
+                <span asp-validation-for="@Model.GearId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ChannelId" class="control-label"></label>
+                <select asp-for="@Model.ChannelId" class="form-control" asp-items="ViewBag.ChannelId"></select>
+                <span asp-validation-for="@Model.ChannelId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.KnobId" class="control-label"></label>
+                <select asp-for="@Model.KnobId" class="form-control" asp-items="ViewBag.KnobId"></select>
+                <span asp-validation-for="@Model.KnobId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

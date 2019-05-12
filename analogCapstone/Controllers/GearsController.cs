@@ -86,7 +86,7 @@ namespace analogCapstone.Controllers
                     _context.Add(newKnob);
                     await _context.SaveChangesAsync();
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("EditKnobNames", "Gears", new {id = gear.GearId});
             }
             return View(gear);
         }

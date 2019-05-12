@@ -99,7 +99,7 @@ namespace analogCapstone.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditKnobNames([Bind("Gear, Knobs")] AllKnobsEditViewModel allKnobs)
+        public async Task<IActionResult> EditKnobNames(AllKnobsEditViewModel allKnobs)
         {
             if (ModelState.IsValid)
             {
@@ -108,12 +108,14 @@ namespace analogCapstone.Controllers
                     foreach (var item in allKnobs.Knobs)
                     {
                         db.Knob.Update(item);
+                        await _context.SaveChangesAsync();
                     }
 
                     db.SaveChanges();
                 }
+                return RedirectToAction(nameof(Index));
             }
-            return View();
+            return View(allKnobs);
         }
 
         // GET: Gears/Edit/5

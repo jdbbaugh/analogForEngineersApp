@@ -31,6 +31,7 @@ namespace analogCapstone.Controllers
             var gearList = await _context.Gear
                 .Include(g => g.ChannelToGears)
                 .Include(g => g.Knobs)
+                .OrderBy(g => g.Type)
                 .ToListAsync();
             GearIndexViewModel allGear = new GearIndexViewModel();
             allGear.ApplicationUser = user;

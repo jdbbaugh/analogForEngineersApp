@@ -1,0 +1,57 @@
+﻿@model analogCapstone.Models.ViewModel.AllKnobsEditViewModel
+
+<h1>@Model.Gear.Make @Model.Gear.Model</h1>
+<h4>Edit Knobs</h4>
+<hr />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditKnobNames">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.Gear.GearId" />
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.Make" class="form-control" />
+                <span asp-validation-for="@Model.Gear.Make" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.Model" class="form-control" />
+                <span asp-validation-for="@Model.Gear.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.Type" class="form-control" />
+                <span asp-validation-for="@Model.Gear.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.OrdinalsAvailable" class="form-control" />
+                <span asp-validation-for="@Model.Gear.OrdinalsAvailable" class="text-danger"></span>
+            </div>
+            @for (int i = 0; i < Model.Knobs.Count; i++)
+            {
+            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+            <input type="hidden" asp-for="@Model.Knobs[i].KnobId" />
+            <div class="form-group">
+                <label asp-for="@Model.Knobs[i].KnobName" class="control-label">Knob: @Model.Knobs[i].Ordinal</label>
+                <input asp-for="@Model.Knobs[i].KnobName" class="form-control" />
+                <span asp-validation-for="@Model.Knobs[i].KnobName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Knobs[i].GearId" class="form-control" />
+                <span asp-validation-for="@Model.Knobs[i].GearId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Knobs[i].Ordinal" class="form-control" />
+                <span asp-validation-for="@Model.Knobs[i].Ordinal" class="text-danger"></span>
+            </div>
+
+            }
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

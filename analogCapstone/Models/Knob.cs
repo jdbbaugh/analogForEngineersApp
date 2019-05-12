@@ -10,6 +10,7 @@ namespace analogCapstone.Models
     {
         [Key]
         public int KnobId { get; set; }
+        [Display(Name = "Knob")]
         public string KnobName { get; set; }
 
         public int GearId { get; set; }

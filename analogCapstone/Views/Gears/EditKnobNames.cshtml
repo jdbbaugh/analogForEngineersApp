@@ -28,7 +28,6 @@
             </div>
             @for (int i = 0; i < Model.Knobs.Count; i++)
             {
-            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
             <input type="hidden" asp-for="@Model.Knobs[i].KnobId" />
             <div class="form-group">
                 <label asp-for="@Model.Knobs[i].KnobName" class="control-label">Knob: @Model.Knobs[i].Ordinal</label>

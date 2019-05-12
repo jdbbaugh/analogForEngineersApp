@@ -2,28 +2,28 @@
 
 <h1>@Model.Gear.Make @Model.Gear.Model</h1>
 <h4>Edit Knobs</h4>
-<hr/>
+<hr />
 
 
 <div class="row">
     <div class="col-md-4">
         <form asp-action="EditKnobNames">
-            @foreach (var item in Model.Knobs)
+            @for(int i =0; i < Model.Knobs.Count; i++)
             {
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="@item.KnobId" />
+            <input type="hidden" asp-for="@Model.Knobs[i].KnobId" />
             <div class="form-group">
-                <label asp-for="@item.KnobName" class="control-label">Knob: @item.Ordinal</label>
-                <input asp-for="@item.KnobName" class="form-control" />
-                <span asp-validation-for="@item.KnobName" class="text-danger"></span>
+                <label asp-for="@Model.Knobs[i].KnobName" class="control-label">Knob: @Model.Knobs[i].Ordinal</label>
+                <input asp-for="@Model.Knobs[i].KnobName" class="form-control" />
+                <span asp-validation-for="@Model.Knobs[i].KnobName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="hidden" asp-for="@item.GearId" class="form-control" />
-                <span asp-validation-for="@item.GearId" class="text-danger"></span>
+                <input type="hidden" asp-for="@Model.Knobs[i].GearId" class="form-control" />
+                <span asp-validation-for="@Model.Knobs[i].GearId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="hidden" asp-for="@item.Ordinal" class="form-control" />
-                <span asp-validation-for="@item.Ordinal" class="text-danger"></span>
+                <input type="hidden" asp-for="@Model.Knobs[i].Ordinal" class="form-control" />
+                <span asp-validation-for="@Model.Knobs[i].Ordinal" class="text-danger"></span>
             </div>
 
             }
@@ -33,3 +33,7 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

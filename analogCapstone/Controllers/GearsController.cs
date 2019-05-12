@@ -75,7 +75,18 @@ namespace analogCapstone.Controllers
             {
                 _context.Add(gear);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                for (int i = 0; i < gear.OrdinalsAvailable; i++)
+                {
+                    Knob newKnob = new Knob
+                    {
+                        KnobName = "Enter Name",
+                        GearId = gear.GearId,
+                        Ordinal = i + 1
+                    };
+                    _context.Add(newKnob);
+                    await _context.SaveChangesAsync();
+                }
+                return RedirectToAction("EditKnobNames", "Gears", new {id = gear.GearId});
             }
             return View(gear);
         }

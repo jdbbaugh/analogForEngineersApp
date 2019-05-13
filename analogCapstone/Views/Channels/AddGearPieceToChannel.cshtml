@@ -7,9 +7,10 @@
 <h1>AddGearPieceToChannel</h1>
 
 
-<form asp-action="EditKnobNames" asp-route-id="@Model.ChannelId" method="get">
+<form asp-action="AddUsersFirstNewGearSettings" asp-route-id="@Model.ChannelId" method="get">
     @Html.DropDownList("GearTitle", "Select a Value")
     @*<input type="hidden"  />*@
     <input type="submit" value="Add Channel" class="btn btn-primary" />
 </form>
 
+<a asp-action="Details" asp-route-id="@Model.ChannelId">Back to Channel Overview</a>

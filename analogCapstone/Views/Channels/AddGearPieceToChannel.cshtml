@@ -1,4 +1,5 @@
-﻿
+﻿@model analogCapstone.Models.Channel
+
 @{
     ViewData["Title"] = "AddGearPieceToChannel";
 }
@@ -6,8 +7,9 @@
 <h1>AddGearPieceToChannel</h1>
 
 
-<form asp-action="AddGearPieceToChannel" method="get">
-@Html.DropDownList("GearTitle", "Select a Value")
+<form asp-action="EditKnobNames" asp-route-id="@Model.ChannelId" method="get">
+    @Html.DropDownList("GearTitle", "Select a Value")
     @*<input type="hidden"  />*@
     <input type="submit" value="Add Channel" class="btn btn-primary" />
 </form>
+

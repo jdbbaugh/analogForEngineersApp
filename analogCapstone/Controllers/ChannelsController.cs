@@ -56,7 +56,7 @@ namespace analogCapstone.Controllers
             return View(channelIndex);
         }
 
-        public async Task<IActionResult> AddGearPieceToChannel()
+        public async Task<IActionResult> AddGearPieceToChannel(int id)
         {
             IEnumerable<SelectListItem> gears = _context.Gear.Select(g => new SelectListItem
             {
@@ -64,15 +64,23 @@ namespace analogCapstone.Controllers
                 Text = $"{g.Make} {g.Model}"
             });
             ViewBag.GearTitle = gears;
+            Channel newChan = await _context.Channel.FirstAsync(c => c.ChannelId == id);
+            return View(newChan);
+        }
+
+
+        public async Task<IActionResult> EditKnobNames(int? id, string GearTitle)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            GearGrouped KnobNamesToEdit = new GearGrouped();
+
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> AddGearPieceToChannel(int id)
-        //{
-        //    return View();
-        //}
+
         // GET: Channels/Details/5
         public async Task<IActionResult> Details(int? id)
         {

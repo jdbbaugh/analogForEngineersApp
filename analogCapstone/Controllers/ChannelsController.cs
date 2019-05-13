@@ -102,7 +102,15 @@ namespace analogCapstone.Controllers
                         .Select(ks => new SettingKnobViewModel
                         {
                             KnobLabel = ks.Knob.KnobName,
-                            Setting = ks.KnobSetting
+                            Setting = ks.KnobSetting,
+                            ChannelToGear = new ChannelToGear
+                            {
+                                ChannelToGearId = ks.ChannelToGearId,
+                                KnobSetting = ks.KnobSetting,
+                                GearId = ks.GearId,
+                                ChannelId = ks.ChannelId,
+                                KnobId = ks.KnobId
+                            }
                         }).ToList()
                 }).ToListAsync();
 
@@ -115,12 +123,7 @@ namespace analogCapstone.Controllers
             return View(model);
         }
 
-        // GET: Channels/Create
-        public IActionResult Create(int id)
-        {
-            ViewData["SongId"] = id;
-            return View();
-        }
+        
 
         // POST: Channels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -141,17 +144,51 @@ namespace analogCapstone.Controllers
             return View(channel);
         }
 
-        //public async Task<IActionResult> EditGearSettings(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
 
+        public async Task<IActionResult> GearOnChannelEditUserSettings(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //}
+            var channelToGear= await _context.ChannelToGear
+                .Include(cg => cg.Gear)
+                .Include(cg => cg.Channel)
+                .Include(cg => cg.Knob)
+                .FirstOrDefaultAsync(cg => cg.ChannelToGearId == id);
+            if (channelToGear== null)
+            {
+                return NotFound();
+            }
+            
+            return View(channelToGear);
+        }
 
-        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> GearOnChannelEditUserSettings(ChannelToGear channelToGear)
+        {
+            
+
+            if (ModelState.IsValid)
+            {
+                
+                    _context.Update(channelToGear);
+                    await _context.SaveChangesAsync();
+                return RedirectToAction("Details", "Channels", new { id = channelToGear.ChannelId });
+            }
+            ViewData["GearId"] = new SelectList(_context.Gear, "GearId", "Make", channelToGear.GearId);
+            return View(channelToGear);
+        }
+
+        // GET: Channels/Create
+        public IActionResult Create(int id)
+        {
+            ViewData["SongId"] = id;
+            return View();
+        }
+
 
         // GET: Channels/Edit/5
         public async Task<IActionResult> Edit(int? id)

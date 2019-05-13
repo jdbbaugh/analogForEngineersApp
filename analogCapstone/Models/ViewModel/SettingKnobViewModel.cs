@@ -10,6 +10,7 @@ namespace analogCapstone.Models.ViewModel
         
         public string KnobLabel { get; set; }
         public string Setting { get; set; }
+        public ChannelToGear ChannelToGear { get; set; }
           
     }
 }

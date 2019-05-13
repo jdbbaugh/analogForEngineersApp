@@ -152,12 +152,16 @@ namespace analogCapstone.Controllers
                 return NotFound();
             }
 
-            var channelToGear= await _context.ChannelToGear.FindAsync(id);
+            var channelToGear= await _context.ChannelToGear
+                .Include(cg => cg.Gear)
+                .Include(cg => cg.Channel)
+                .Include(cg => cg.Knob)
+                .FirstOrDefaultAsync(cg => cg.ChannelToGearId == id);
             if (channelToGear== null)
             {
                 return NotFound();
             }
-            ViewData["GearId"] = new SelectList(_context.Gear, "GearId", "Make", channelToGear.GearId);
+            
             return View(channelToGear);
         }
 
@@ -172,7 +176,7 @@ namespace analogCapstone.Controllers
                 
                     _context.Update(channelToGear);
                     await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Channels", new { id = channelToGear.ChannelId });
             }
             ViewData["GearId"] = new SelectList(_context.Gear, "GearId", "Make", channelToGear.GearId);
             return View(channelToGear);

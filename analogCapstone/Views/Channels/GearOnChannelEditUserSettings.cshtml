@@ -4,33 +4,70 @@
     ViewData["Title"] = "GearOnChannelEditUserSettings";
 }
 
-<h1>GearOnChannelEditUserSettings</h1>
+<h1>@Model.Gear.Make @Model.Gear.Model</h1>
 
-<h4>ChannelToGear</h4>
+<h4>@Model.Channel.ChannelName</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="GearOnChannelEditUserSettings">
+        <form asp-action="EditKnobNames">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.Gear.GearId" />
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.Make" class="form-control" />
+                <span asp-validation-for="@Model.Gear.Make" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.Model" class="form-control" />
+                <span asp-validation-for="@Model.Gear.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.Type" class="form-control" />
+                <span asp-validation-for="@Model.Gear.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.OrdinalsAvailable" class="form-control" />
+                <span asp-validation-for="@Model.Gear.OrdinalsAvailable" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="@Model.Knob.KnobId" />
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Knob.KnobName" class="form-control" />
+                <span asp-validation-for="@Model.Knob.KnobName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Knob.GearId" class="form-control" />
+                <span asp-validation-for="@Model.Knob.GearId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Knob.Ordinal" class="form-control" />
+                <span asp-validation-for="@Model.Knob.Ordinal" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="@Model.Channel.ChannelId" />
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Channel.ChannelName" class="form-control" />
+                <span asp-validation-for="@Model.Channel.ChannelName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Channel.SongId" class="form-control" />
+                <span asp-validation-for="@Model.Channel.SongId" class="text-danger"></span>
+            </div>
+            @*------------------------------------------------------*@
             <input type="hidden" asp-for="@Model.ChannelToGearId" />
             <div class="form-group">
-                <label asp-for="@Model.KnobSetting" class="control-label"></label>
+                <label asp-for="@Model.KnobSetting" class="control-label">Knob: @Model.Knob.KnobName</label>
                 <input asp-for="@Model.KnobSetting" class="form-control" />
                 <span asp-validation-for="@Model.KnobSetting" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.GearId" class="control-label"></label>
-                <select asp-for="@Model.GearId" class="form-control" ></select>
+                <input type="hidden" asp-for="@Model.GearId" class="form-control" />
                 <span asp-validation-for="@Model.GearId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.ChannelId" class="control-label"></label>
-                <select asp-for="@Model.ChannelId" class="form-control" asp-items="ViewBag.ChannelId"></select>
+                <input type="hidden" asp-for="@Model.ChannelId" class="form-control" />
                 <span asp-validation-for="@Model.ChannelId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.KnobId" class="control-label"></label>
-                <select asp-for="@Model.KnobId" class="form-control" asp-items="ViewBag.KnobId"></select>
+                <input type="hidden" asp-for="@Model.KnobId" class="form-control" />
                 <span asp-validation-for="@Model.KnobId" class="text-danger"></span>
             </div>
             <div class="form-group">

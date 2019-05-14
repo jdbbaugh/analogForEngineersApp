@@ -22,6 +22,10 @@
                 <span asp-validation-for="@Model.Gear.Model" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <input type="hidden" asp-for="@Model.Gear.GearImage" class="form-control" />
+                <span asp-validation-for="@Model.Gear.GearImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="hidden" asp-for="@Model.Gear.Type" class="form-control" />
                 <span asp-validation-for="@Model.Gear.Type" class="text-danger"></span>
             </div>

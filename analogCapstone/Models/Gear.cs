@@ -11,6 +11,8 @@ namespace analogCapstone.Models
         [Key]
         public int GearId { get; set; }
 
+        public string GearImage { get; set; }
+
         [Required]
         public string Make { get; set; }
 

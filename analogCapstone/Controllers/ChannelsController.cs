@@ -327,6 +327,11 @@ namespace analogCapstone.Controllers
             return View(channel);
         }
 
+        public async Task<IActionResult> DeleteGearPieceFromChannel(int? id)
+        {
+            return View();
+        }
+
         // POST: Channels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -335,7 +340,7 @@ namespace analogCapstone.Controllers
             var channel = await _context.Channel.FindAsync(id);
             _context.Channel.Remove(channel);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("SongChannelsIndex", "Channels", new { id = channel.SongId });
         }
 
         private bool ChannelExists(int id)

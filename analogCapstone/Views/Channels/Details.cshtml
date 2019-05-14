@@ -30,6 +30,8 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.GearMake)
+                <br/>
+                <a asp-action="Delete" asp-route-id="1">Remove</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GearModel)
@@ -37,13 +39,15 @@
             @foreach (var notherItem in item.GearSettings)
             {
                 <td>
-                    @Html.DisplayFor(modelItem => notherItem.KnobLabel): <br/> 
+                    @Html.DisplayFor(modelItem => notherItem.KnobLabel): <br/>
                     <a asp-action="GearOnChannelEditUserSettings" asp-route-id="@notherItem.ChannelToGear.ChannelToGearId">@Html.DisplayFor(modelItem => notherItem.Setting)</a>
-                    
+
                 </td>
+
             }
-            <td></td>
+
         </tr>
+
     }
     </tbody>
 </table>

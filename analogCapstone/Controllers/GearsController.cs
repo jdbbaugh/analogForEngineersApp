@@ -39,6 +39,20 @@ namespace analogCapstone.Controllers
             return View(allGear);
         }
 
+        public async Task<IActionResult> UnloggedUserGearIndex()
+        {
+            var user = await GetCurrentUserAsync();
+            var gearList = await _context.Gear
+                .Include(g => g.ChannelToGears)
+                .Include(g => g.Knobs)
+                .OrderBy(g => g.Type)
+                .ToListAsync();
+            GearIndexViewModel allGear = new GearIndexViewModel();
+            allGear.ApplicationUser = user;
+            allGear.Gears = gearList;
+            return View(allGear);
+        }
+
         // GET: Gears/Details/5
         public async Task<IActionResult> Details(int? id)
         {

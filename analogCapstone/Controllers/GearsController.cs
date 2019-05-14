@@ -69,7 +69,7 @@ namespace analogCapstone.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GearId,Make,Model,Type,OrdinalsAvailable")] Gear gear)
+        public async Task<IActionResult> Create([Bind("GearId,Make,Model,GearImage,Type,OrdinalsAvailable")] Gear gear)
         {
             if (ModelState.IsValid)
             {
@@ -152,7 +152,7 @@ namespace analogCapstone.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GearId,Make,Model,Type,OrdinalsAvailable")] Gear gear)
+        public async Task<IActionResult> Edit(int id, [Bind("GearId,Make,Model,GearImage,Type,OrdinalsAvailable")] Gear gear)
         {
             if (id != gear.GearId)
             {

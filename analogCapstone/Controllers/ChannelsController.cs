@@ -116,10 +116,23 @@ namespace analogCapstone.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddUsersFirstNewGearSettings(GearGrouped GearGrouped)
+        public async Task<IActionResult> AddUsersFirstNewGearSettings(GearGrouped GearGroup)
         {
+            foreach (SettingKnobViewModel item in GearGroup.GearSettings)
+            {
+                ChannelToGear channelToGear = new ChannelToGear
+                {
+                    KnobSetting = item.ChannelToGear.KnobSetting,
+                    GearId = item.ChannelToGear.GearId,
+                    ChannelId = item.ChannelToGear.ChannelId,
+                    KnobId = item.ChannelToGear.KnobId
+                };
+                _context.Add(channelToGear);
+                await _context.SaveChangesAsync();
+               
+            }
 
-            return View();
+            return RedirectToAction("Details", "Channels", new { id = GearGroup.GearSettings[0].ChannelToGear.ChannelId });
         }
 
 

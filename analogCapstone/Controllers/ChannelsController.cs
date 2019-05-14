@@ -261,12 +261,14 @@ namespace analogCapstone.Controllers
                 return NotFound();
             }
 
-            var channel = await _context.Channel.FindAsync(id);
+            var channel = await _context.Channel
+                .Include(c => c.Song)
+                .FirstOrDefaultAsync(c => c.ChannelId == id);
             if (channel == null)
             {
                 return NotFound();
             }
-            ViewData["SongId"] = new SelectList(_context.Song, "SongId", "BandArtistName", channel.SongId);
+            
             return View(channel);
         }
 
@@ -277,7 +279,7 @@ namespace analogCapstone.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ChannelId,ChannelName,SongId")] Channel channel)
+        public async Task<IActionResult> Edit(int id, Channel channel)
         {
             if (id != channel.ChannelId)
             {
@@ -302,7 +304,7 @@ namespace analogCapstone.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("SongChannelsIndex", "Channels", new { id = channel.SongId});
             }
             ViewData["SongId"] = new SelectList(_context.Song, "SongId", "BandArtistName", channel.SongId);
             return View(channel);
@@ -327,6 +329,11 @@ namespace analogCapstone.Controllers
             return View(channel);
         }
 
+        public async Task<IActionResult> DeleteGearPieceFromChannel(int? id)
+        {
+            return View();
+        }
+
         // POST: Channels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -335,7 +342,7 @@ namespace analogCapstone.Controllers
             var channel = await _context.Channel.FindAsync(id);
             _context.Channel.Remove(channel);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("SongChannelsIndex", "Channels", new { id = channel.SongId });
         }
 
         private bool ChannelExists(int id)

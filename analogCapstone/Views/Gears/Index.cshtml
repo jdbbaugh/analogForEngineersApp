@@ -23,29 +23,35 @@ else
 
 <table class="table">
     <thead>
-    <tr>
+        <tr>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Gears[0].Make)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gears[0].Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gears[0].Type)
-        </th>
-        <th></th>
-    </tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Gears[0].Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gears[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gears[0].GearImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gears[0].Type)
+            </th>
+            <th></th>
+        </tr>
     </thead>
     <tbody>
     @foreach (var item in Model.Gears) {
         <tr>
             <td>
                 <a asp-action="Details" asp-route-id="@item.GearId">@Html.DisplayFor(modelItem => item.Make)</a>
-                
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.GearImage)" class="img-fluid" alt="Responsive image">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Type)

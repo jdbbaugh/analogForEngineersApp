@@ -56,7 +56,7 @@ namespace analogCapstone.Controllers
             return View(channelIndex);
         }
 
-        public async Task<IActionResult> AddGearPieceToChannel()
+        public async Task<IActionResult> AddGearPieceToChannel(int id)
         {
             IEnumerable<SelectListItem> gears = _context.Gear.Select(g => new SelectListItem
             {
@@ -64,15 +64,78 @@ namespace analogCapstone.Controllers
                 Text = $"{g.Make} {g.Model}"
             });
             ViewBag.GearTitle = gears;
-            return View();
+            Channel newChan = await _context.Channel.FirstAsync(c => c.ChannelId == id);
+            return View(newChan);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> AddGearPieceToChannel(int id)
-        //{
-        //    return View();
-        //}
+
+        public async Task<IActionResult> AddUsersFirstNewGearSettings(int id, string GearTitle)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+
+
+            GearGrouped KnobNamesToEdit = new GearGrouped();
+
+            KnobNamesToEdit.GearSettings = new List<SettingKnobViewModel>();
+
+            var getChannel = await _context.Channel
+                .FirstAsync(ch => ch.ChannelId == id);
+            var getGear = await _context.Gear
+                .Include(g => g.Knobs)
+                .FirstOrDefaultAsync(g => g.GearId == int.Parse(GearTitle));
+
+            KnobNamesToEdit.TypeId = getGear.GearId;
+            KnobNamesToEdit.GearMake = getGear.Make;
+            KnobNamesToEdit.GearModel = getGear.Model;
+            foreach (Knob item in getGear.Knobs)
+            {
+            SettingKnobViewModel specifics = new SettingKnobViewModel();
+                specifics.KnobLabel = item.KnobName;
+                specifics.Setting = "Add Setting";
+                specifics.ChannelToGear = new ChannelToGear
+                {
+                    KnobSetting = "Add Setting",
+                    GearId = int.Parse(GearTitle),
+                    ChannelId = id,
+                    Channel = getChannel,
+                    KnobId = item.KnobId,
+                    Knob = item
+                };
+                KnobNamesToEdit.GearSettings.Add(specifics);
+            }
+
+            
+
+
+            return View(KnobNamesToEdit);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddUsersFirstNewGearSettings(GearGrouped GearGroup)
+        {
+            foreach (SettingKnobViewModel item in GearGroup.GearSettings)
+            {
+                ChannelToGear channelToGear = new ChannelToGear
+                {
+                    KnobSetting = item.ChannelToGear.KnobSetting,
+                    GearId = item.ChannelToGear.GearId,
+                    ChannelId = item.ChannelToGear.ChannelId,
+                    KnobId = item.ChannelToGear.KnobId
+                };
+                _context.Add(channelToGear);
+                await _context.SaveChangesAsync();
+               
+            }
+
+            return RedirectToAction("Details", "Channels", new { id = GearGroup.GearSettings[0].ChannelToGear.ChannelId });
+        }
+
+
         // GET: Channels/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -13,6 +13,8 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ChannelId" />
+            <input type="hidden" asp-for="SongId" />
+            @*<input type="hidden" asp-for="@Model.Song.SongId" class="form-control" />*@
             <div class="form-group">
                 <label asp-for="ChannelName" class="control-label"></label>
                 <input asp-for="ChannelName" class="form-control" />

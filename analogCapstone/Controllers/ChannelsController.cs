@@ -328,7 +328,7 @@ namespace analogCapstone.Controllers
 
 
 
-            return View();
+            return View(channelToGear[0]);
         }
 
         // GET: Channels/Delete/5

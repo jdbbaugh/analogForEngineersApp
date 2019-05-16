@@ -320,6 +320,12 @@ namespace analogCapstone.Controllers
             var channelToGear = await _context.ChannelToGear
                 .Where(cg => cg.GearId == id && cg.ChannelId == channel.ChannelId).ToListAsync();
 
+            foreach (var item in channelToGear)
+            {
+                _context.ChannelToGear.Remove(item);
+                await _context.SaveChangesAsync();
+            }
+
 
 
             return View();

@@ -58,6 +58,7 @@ namespace analogCapstone.Controllers
 
         public async Task<IActionResult> AddGearPieceToChannel(int id)
         {
+            //Channel id is id
             IEnumerable<SelectListItem> gears = _context.Gear.Select(g => new SelectListItem
             {
                 Value = g.GearId.ToString(),

@@ -317,6 +317,10 @@ namespace analogCapstone.Controllers
                 return NotFound();
             }
 
+            var channelToGear = await _context.ChannelToGear
+                .Where(cg => cg.GearId == id && cg.ChannelId == channel.ChannelId).ToListAsync();
+
+
 
             return View();
         }
@@ -338,11 +342,6 @@ namespace analogCapstone.Controllers
             }
 
             return View(channel);
-        }
-
-        public async Task<IActionResult> DeleteGearPieceFromChannel(int? id)
-        {
-            return View();
         }
 
         // POST: Channels/Delete/5

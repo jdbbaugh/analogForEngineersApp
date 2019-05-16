@@ -31,7 +31,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.GearMake)
                 <br/>
-                <a asp-action="Delete" asp-route-id="1">Remove</a>
+                
+                <form asp-action="RemoveGearFromSpecificChannel" asp-route-id="@item.TypeId">
+                    <input type="submit" value="Remove" class="btn btn-dark" />
+                    <input type="hidden"asp-for="@Model.Channel.ChannelId" class="form-control" />
+                </form>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GearModel)

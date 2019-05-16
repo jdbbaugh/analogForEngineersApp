@@ -310,6 +310,17 @@ namespace analogCapstone.Controllers
             return View(channel);
         }
 
+        public async Task<IActionResult> RemoveGearFromSpecificChannel(int? id, Channel channel)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+
+            return View();
+        }
+
         // GET: Channels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

@@ -1,0 +1,61 @@
+﻿@model analogCapstone.Models.ViewModel.GearIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@if (Model.ApplicationUser != null)
+{
+<div>
+    <img class="rounded-circle" src="@Html.DisplayFor(modelItem => Model.ApplicationUser.producerImgUrl)" alt="Generic placeholder image" width="100" height="100">
+</div>
+
+}
+else
+{
+<div>
+    <img class="rounded-circle" src="http://www.blackdogdigital.com/uploads/1/8/2/7/18278313/3302432_orig.jpg" alt="Generic placeholder image" width="100" height="100">
+</div>
+}
+<h1>Available Studio Gear</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Gears[0].Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gears[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gears[0].GearImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gears[0].Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Gears) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.GearImage)" class="img-fluid" alt="Responsive image">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

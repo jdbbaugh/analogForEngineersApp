@@ -95,10 +95,10 @@ namespace analogCapstone.Controllers
             {
             SettingKnobViewModel specifics = new SettingKnobViewModel();
                 specifics.KnobLabel = item.KnobName;
-                specifics.Setting = "Add Setting";
+                specifics.Setting = "Setting";
                 specifics.ChannelToGear = new ChannelToGear
                 {
-                    KnobSetting = "Add Setting",
+                    KnobSetting = "Setting",
                     GearId = int.Parse(GearTitle),
                     ChannelId = id,
                     Channel = getChannel,

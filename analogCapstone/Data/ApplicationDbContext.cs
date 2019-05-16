@@ -47,7 +47,7 @@ namespace analogCapstone.Data
                     FirstName = "Joey",
                     LastName = "Baugh",
                     UserName = "jbaugh@me.com",
-                    producerImgUrl = "https://i.pinimg.com/originals/3a/96/de/3a96de2e9c9321992a71814d31945399.jpg",
+                    producerImgUrl = "http://dekstop.de/weblog/2006/01/erlang_the_movie/erlang-1.jpg",
                     Email = "jbaugh@me.com",
                     NormalizedUserName = "JBAUGH@ME.COM",
                     NormalizedEmail = "JBAUGH@ME.COM",

@@ -4,4 +4,4 @@
 An app for mix engineers who want to easily keep track of songs gear settings.
 
 ## Enitity Relationship Diagram
-<img width="300" height="200" src="./AnalogERD.png" />
+<img width="600" height="400" src="./AnalogERD.png" />
